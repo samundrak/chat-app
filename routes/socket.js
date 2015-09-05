@@ -1,4 +1,5 @@
 var socket = function(io) {
+   
     var allClients = new Array();
     var nameOfClients = new Array();
     io
@@ -9,11 +10,11 @@ var socket = function(io) {
                 var i = allClients.indexOf(client);
                 if (i > -1) {
                     client.broadcast.emit('newMessage', {
-                    	type: "info",
+                        type: "info",
                         message: nameOfClients[i].name + " has left."
                     });
-                	allClients.splice(i,1);
-           			nameOfClients.splice(i,1);
+                    allClients.splice(i, 1);
+                    nameOfClients.splice(i, 1);
                 }
             });
 
