@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+    script(src="../react/react.min.js" )
+    script(src="../react/JSXTransformer.js" )
+    script(src="/socket.io/socket.io.js" )
+    script(src="../jquery/dist/jquery.js" )
+    script(src="../angular/angular.min.js" )
+    script(src="../angular-animate/angular-animate.min.js" )
+    script(src="../javascripts/custom.js" )
+  body(ng-app="react")
+    block content

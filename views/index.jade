@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	div(ng-controller="chatCtrl")
+		
+		div.row
+			div(style="padding-left:0px;padding-right:0px;").col-md-8
+				div(style="height:450px;overflow:scroll;overflow-x:hidden;background-color:gray;")
+					ul(id="content" class="list-group")
+						li(class="list-group-item active ") Chat App (AngularJS / Bootstrap / Nodejs / Socket.io / JQuery)
+						li( class="item" ng-repeat="chat in chats" class="list-group-item") 
+							div(ng-if="chat.type === 'info' ")
+								span(class="btn btn-warning") Info
+								span - {{ chat.message}}
+							div(ng-if="chat.type === 'chat' ")
+								span(class="btn btn-primary") {{ chat.username | uppercase }} 
+								span()  - {{ chat.text }}
+			div(style="padding-left:0px;padding-right:0px;").col-md-4
+				div(style="height:450px;overflow:scroll;overflow-x:hidden;background-color:gray;")
+					ul(id="content" class="list-group")
+						li(class="list-group-item active") Connected Clients ({{connectedClients}})
+						li(ng-repeat="user in users" class="list-group-item") {{ user.name }}
+			form(ng-submit="send()")
+				input(disabled type="text" class="form-control" value="This is You: {{username | uppercase}}" placeholder="Enter username" name="chat")
+				br
+				input(autofocus type="text" class="form-control" ng-model="text" name="chat")
+				br
+				input(type="submit" name="button" hidden)
