@@ -1,4 +1,6 @@
-var socket = io('http://localhost:2000/chat');
+var port = (!window.location.port) ? "" : ":" + window.location.port;
+var socket = io(window.location.hostname + port + '/chat');
+
 angular.module('react', ['ngAnimate'])
     .controller('chatCtrl', ['$scope',
         function($scope) {
@@ -59,9 +61,9 @@ angular.module('react', ['ngAnimate'])
                 var username = $scope.username;
 
                 $scope.text = '';
-                if(text === 'clear'){
-                	$scope.chats = [];
-                	return false;
+                if (text === 'clear') {
+                    $scope.chats = [];
+                    return false;
                 }
                 var data = {
                     username: username,

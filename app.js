@@ -54,7 +54,7 @@ function ServerLog(){
  console.log('Running on Host :  ' +listener.address().address)
  console.log('on port :  ' +listener.address().port)
 }
-var listener = app.listen(2000,ServerLog);
+var listener = app.listen(process.env.PORT || ServerLog);
 socket = new socket(listener);
 var socketServer =  require('./routes/socket')(socket);
 // production error handler
