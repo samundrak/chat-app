@@ -51,8 +51,8 @@ if (app.get('env') === 'development') {
 }
 
 function ServerLog(){
- console.log('Running on Host :  ' +listener.address().address)
- console.log('on port :  ' +listener.address().port)
+ console.log('Running on Host :  ' + process.env.IP)
+ console.log('on port :  ' + process.env.PORT)
 }
 var listener = app.listen(process.env.PORT || ServerLog);
 socket = new socket(listener);
